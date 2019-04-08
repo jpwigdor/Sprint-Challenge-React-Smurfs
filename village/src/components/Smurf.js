@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import smurf from "./Smurf.css";
+
 const Smurf = props => {
   const smurf = props.smurf
     ? props.smurf.find(smurf => `${smurf.id}` === props.match.params.id)
@@ -8,7 +10,7 @@ const Smurf = props => {
   console.log(smurf);
 
   return (
-    <div className="Smurf">
+    <div className="smurf">
       <h3>{props.name}</h3>
       <strong>{props.height} tall</strong>
       <p>{props.age} smurf years old</p>
