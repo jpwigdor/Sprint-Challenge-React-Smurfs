@@ -1,0 +1,9 @@
+.nav-wrapper {
+  overflow: hidden;
+  background-color: rgba(94, 36, 255, 0.212);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  display: flex;
+  justify-content: space-around;
+}

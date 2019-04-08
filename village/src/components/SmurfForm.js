@@ -18,7 +18,7 @@ class SmurfForm extends Component {
       axios
         .post("http://localhost:3333/smurfs", {
           name: this.state.name,
-          age: this.state.age,
+          age: parseInt(this.state.age),
           height: this.state.height
         })
         .then(response => {
