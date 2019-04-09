@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -7,7 +8,8 @@ class SmurfForm extends Component {
     this.state = {
       name: "",
       age: "",
-      height: ""
+      height: "",
+      toDashboard: false
     };
   }
 
@@ -33,10 +35,18 @@ class SmurfForm extends Component {
   };
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value }).then(() =>
+      this.setState(() => ({
+        toDashboard: true
+      }))
+    );
   };
 
   render() {
+    if (this.state.toDashboard === true) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="SmurfForm">
         <form onSubmit={this.addSmurf}>

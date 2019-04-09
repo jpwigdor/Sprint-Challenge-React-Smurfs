@@ -27,6 +27,17 @@ class App extends Component {
       .catch(err => console.log("You dun smurfed somthing wrong...", err));
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state !== this.prevState) {
+      axios
+        .get("http://localhost:3333/smurfs")
+        .then(response => {
+          this.setState({ smurfs: response.data });
+        })
+        .catch(err => console.log("You dun smurfed somthing wrong...", err));
+    }
+  }
+
   render() {
     return (
       <div className="App">
